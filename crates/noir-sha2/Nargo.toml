@@ -1,0 +1,6 @@
+[package]
+name = "sha2"
+type = "lib"
+authors = ["@michaelelliot"]
+compiler_version = "0.10.5"
+license = "MIT"
