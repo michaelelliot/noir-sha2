@@ -3,7 +3,7 @@ fn main(
     input_len: u16,
     hash: pub [u8; 32]
 ) {
-    let compare_hash = dep::sha2::sha2(input, input_len);
+    let compare_hash = dep::sha2::sha256(input, input_len);
     assert(hash == compare_hash);
 }
 

@@ -10,25 +10,24 @@ In your `Nargo.toml` file, add the following dependency:
 
 ```toml
 [dependencies]
-sha2 = { tag = "v0.0.1", git = "https://github.com/michaelelliot/noir-sha2", directory = "crates/noir-sha2" }
+sha2 = { tag = "v0.0.2", git = "https://github.com/michaelelliot/noir-sha2", directory = "crates/noir-sha2" }
 ```
 
 Then use it in your Noir project like this:
 
 ```rust
-use dep::sha2::{sha2};
+use dep::sha2::{sha256};
 
 fn main(input: [u8; 64], input_len: u16, hash: pub [u8; 32]) {
-    // Generate SHA-2 hash digest of input
-    let compare_hash = sha2(input, input_len);
+    // Generate sha256 hash of input
+    let compare_hash = sha256(input, input_len);
     assert(hash == compare_hash);
 }
 ```
 
-*NOTE:* The `input` parameter must be a `u8` byte array with a length that's a multiple of 64, such as 64, 128, 192, or 256 etc.
-The rest of the byte array can be zero-padded (`0x00`) as shown in the example below, with the `input_len` parameter specifying the number of initial bytes from the `input` to be used for calculating the digest.
+As shown in the example below, the `input` parameter is a `u8` byte array that's zero-padded (`0x00`), with the `input_len` parameter specifying the number of initial bytes to use from `input` to calculate the hash.
 
-Here's an example unit test for the `main` entrypoint above:
+Here's an example test for the `main` entrypoint above:
 
 ```rust
 #[test]
