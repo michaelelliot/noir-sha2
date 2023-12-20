@@ -2,7 +2,7 @@
 name = "sha2_example"
 type = "bin"
 authors = ["@michaelelliot"]
-compiler_version = ">=0.20.0"
+compiler_version = ">=0.16.0"
 
 [dependencies]
 sha2 = { path = "../crates/noir-sha2" }
